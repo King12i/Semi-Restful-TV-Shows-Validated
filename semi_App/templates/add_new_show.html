@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block 'body' %}
+
+
+<div class="container center">
+  
+    <h2>Add a New Show</h2><br>
+
+    {% if messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <ul>    
+            {% for message in messages %}    
+                <li class="text-link">{{ message }}</li>  
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>  
+            {% endfor %}
+        </ul>
+    </div>
+    
+    {% endif %}
+
+    <form action="/create_show" method="POST">
+        {% csrf_token %}
+
+        <div class="form-row p-4">
+            <div class="col ">
+                <label for="title"><b>Tilte</b></label>
+              <input type="text" class="form-control " name="title" placeholder="Tilte">
+            </div>
+        </div>
+
+        <div class="form-row p-4">
+            <div class="col">
+                    <label for="network"><b>Network</b></label>
+                    <input type="text" class="form-control" name="network" placeholder="Network">
+            </div>
+            <div class="col">
+                    <label for="date"><b>Release Date</b></label>
+                    <input type="date" class="form-control fas fa-calendar-alt" name="release_date" placeholder="Date">
+
+            </div>
+        </div>
+          
+        <div class="form-row p-4">
+            <div class="col">
+                <label for="descriptions"><b>Descriptions</b></label>
+              <textarea type="text" class="form-control" name="descriptions" placeholder="Descriptions"></textarea>
+            </div>
+        </div>
+
+        <div class="form-row p-4">
+            <div class="col">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Create">
+            </div>
+        </div>
+        
+      </form>
+                
+
+</div>
+
+
+
+
+
+{% endblock 'body' %}

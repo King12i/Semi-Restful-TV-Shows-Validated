@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block 'body' %}
+<div class="container center">
+    
+    <h1>Welcome to All Shows</h1>
+    <br> <br>
+    
+    <div class="table">
+      <table class="table  table-hover">
+        <thead class="thead-light" >
+            <th  scope="col"> ID </th>
+            <th  scope="col"> Title </th>
+            <th  scope="col"> Network </th>
+            <th  scope="col"> Release Date </th>
+            <th  scope="col"> Descriptions </th>
+            <th  scope="col"> Actions </th>
+        </thead>
+    
+        {% for data in  data_in_Db %}
+        <tr>
+            <th scope="row">{{ data.id }}</th>
+            <td>{{ data.title }}</td>
+            <td>{{ data.network }}</td>
+            <td>{{ data.release_date }}</td>
+            <td>{{ data.descriptions }}</td>
+            <td>
+                <a class="btn btn-primary" href="/show/{{ data.id }}"> Show </a>  
+                <a class="btn btn-dark" href="/edit_show/{{ data.id }}">Edit </a> 
+                <a class="btn btn-danger" href="/show_deletes/{{ data.id }}">Delete</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+      </table>
+  </div>
+  <div class="diplay-block-none">
+    <a href="/add_new_show">Add a New Show</a>
+</div>
+
+</div>
+{% endblock 'body' %}

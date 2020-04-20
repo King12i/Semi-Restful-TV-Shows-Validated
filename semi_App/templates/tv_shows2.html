@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block 'body' %}
+<div class="container center">
+    <div class="float-right diplay-block-none">
+        <a href="/all_show">Go Back</a>
+    </div><br><br>
+
+    <h1>TV Show {{ show_info.id }} </h1><br>
+  <div class="col-sm-8">
+    <table  class="table table-striped table-hover">
+        <tr>
+            <td width="200"> Title: </td>
+            <td>{{ show_info.title }}</td>
+        </tr>
+        <tr>
+            <td width="200"> Network: </td>
+            <td>{{ show_info.network }}</td>
+        </tr>
+        <tr>
+            <td width="200"> Release Date: </td>
+            <td>{{ show_info.release_date }}</td>
+        </tr>
+
+        <tr>
+            <td width="200"> Descriptions: </td>
+            <td>{{ show_info.descriptions }}</td>
+        </tr>
+
+    </table>
+  </div><br><br>
+
+
+  <a class="btn btn-dark" href="/edit_show/{{ show_info.id }}">Edit </a>
+  <a class="btn btn-danger" href="/show_deletes/{{ show_info.id }}">Delete</a>
+
+
+</div>
+{% endblock 'body' %}
